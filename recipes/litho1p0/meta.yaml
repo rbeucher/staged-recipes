@@ -1,0 +1,46 @@
+{% set name = "litho1pt0" %}
+{% set version = "1.1.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 312d1ecefc8164f3b6bdf709408ed6ef794b786cdd524bc5d67f04037b0336c8
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - numpy
+    - pip
+    - python
+    - scipy >=0.15.0
+    - stripy 
+  run:
+    - numpy
+    - python
+    - scipy >=0.15.0
+    - stripy 
+
+
+about:
+  home: "https://github.com/underworldcode/litho1pt0"
+  license: LGPL-2.0-or-later
+  license_family: GPL
+  license_file: COPYING.LESSER
+  summary: "Python interface to Litho 1.0 model leveraging stripy interpolation"
+  doc_url: https://underworldcode.github.io/litho1pt0 
+  dev_url: https://github.com/underworldcode/litho1pt0 
+
+extra:
+  recipe-maintainers:
+    - lmoresi 
+    - brmather
+    - rbeucher
+
