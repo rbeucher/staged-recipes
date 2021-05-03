@@ -45,6 +45,7 @@ requirements:
   run:
     - python
     - {{ mpi }}
+    - numpy
     - petsc
     - pint
     - scipy
